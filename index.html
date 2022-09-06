@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .img{
+            display: none;
+        }
+
+        body{
+            background-color: crimson;
+        }
+
+        .no{
+            position: absolute;
+
+        }
+        .bt{
+            border: 0;
+            width: 150px;
+            border-radius: 30px;
+            height: 60px;
+            color:crimson;
+            font-size: 1.2rem;
+            
+        }
+
+        h1{
+            text-align: center;
+            font-family: sans-serif ;
+            color: white;
+            margin-top: 20px;
+            height: 10px;
+        }
+
+        .box1{
+            width: 100%;
+            height: calc(100vh - 30px);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+         .box2{
+            width: 100%;
+            height: calc(100vh - 30px);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="p">Quer fazer amor comigo? (seja sabia)</h1>
+    <div class="box1">
+    
+        <button class="bt yes" onclick="yesClick()">
+            Sim
+        </button>
+
+        <button class="bt no" onmousemove="noClick()">
+            Não
+        </button>
+    
+        
+    
+    
+    </div>
+    <h1 class="y">Me arrumando pra irmos no swing</h1>
+    <div class="box2">
+        <img src="./eu-te-amo.jpg" alt="">
+    </div>
+    <script>
+
+        function yesClick() {
+            
+            document.querySelector(".box1").style.display = "none";
+            document.querySelector(".box2").style.display = "flex";
+            document.querySelector("h1.p").style.display = "none";
+            document.querySelector("h1.yes").style.display = "block";
+        }
+
+
+        setInterval(() => {
+
+            if (window.screen.width <= 768) {
+
+                noClick();
+
+            }
+        }, 500)
+
+
+        function noClick() {
+
+            let functions = [
+                {
+                    f: () => {
+                        document.querySelector('.no').style.top = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.left = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.bottom = ""
+                        document.querySelector('.no').style.right = ""
+                    }
+                },
+                {
+                    f: () => {
+                        document.querySelector('.no').style.top = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.right = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.bottom = ""
+                        document.querySelector('.no').style.left = ""
+                    }
+                },
+                {
+                    f: () => {
+                        document.querySelector('.no').style.bottom = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.left = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.top = ""
+                        document.querySelector('.no').style.right = ""
+                    }
+                },
+                {
+                    f: () => {
+                        document.querySelector('.no').style.bottom = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.right = Math.random() * 100 + "px"
+                        document.querySelector('.no').style.top = ""
+                        document.querySelector('.no').style.left = ""
+                    }
+                }
+
+            ]
+
+            functions[Math.floor(Math.random() * 4)].f()
+
+
+
+
+        }
+    </script>
+    
+    </body>
+    
+    </html>
+</body>
+</html>
